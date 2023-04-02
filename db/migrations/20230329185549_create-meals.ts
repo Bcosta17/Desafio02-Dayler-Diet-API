@@ -5,9 +5,11 @@ export async function up(knex: Knex): Promise<void> {
     table.uuid('mealId').primary()
     table.text('name').notNullable()
     table.text('description').notNullable()
-    table.datetime('date').notNullable()
+    table.date('date').notNullable()
+    table.time('hour').notNullable()
+    table.boolean('isDiet').notNullable()
     table.text('sessionId').unsigned().notNullable()
-    table.foreign('sessionId').references('Users.session_id').notNullable()
+    table.foreign('sessionId').references('users.session_id')
     table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable()
   })
 }

@@ -12,8 +12,9 @@ declare module 'knex/types/tables' {
       mealId: string
       name: string
       description: string
-      date: Date
-      hour: number
+      date: string
+      hour: string
+      isDiet: Boolean
     }
   }
 }
