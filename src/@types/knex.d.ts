@@ -7,6 +7,8 @@ declare module 'knex/types/tables' {
       userId: string
       session_id?: string
       name: string
+      sequence: number
+      countSequence: number
     }
     meals: {
       mealId: string

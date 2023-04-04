@@ -20,12 +20,15 @@ export async function usersRoutes(app: FastifyInstance) {
 
     reply.cookie('sessionId', sessionId, {
       path: '/',
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
     })
 
     await knex('users').insert({
       userId: randomUUID(),
       session_id: sessionId,
       name,
+      countSequence: 0,
+      sequence: 0,
     })
 
     return reply.status(201).send()
